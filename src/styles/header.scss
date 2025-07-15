@@ -1,0 +1,129 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 1000;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    @media (min-width: 768px) {
+      font-size: 1.7rem;
+    }
+
+    span {
+      background: var(--gradient-color-bg);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  .navlist {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f8f8f8;
+    z-index: 999;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease;
+    list-style: none;
+    padding: 0;
+
+    @media (min-width: 768px) {
+      position: relative;
+      flex-direction: row;
+      overflow: unset;
+      top: 0;
+    }
+
+    li {
+      margin: 0 1rem;
+      padding: 12px 0;
+
+      a {
+        font-weight: 600;
+
+        &.active,
+        &:hover {
+          background: #5ec7ff;
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
+      }
+    }
+  }
+
+  .open {
+    max-height: 500px;
+  }
+
+  .right-header {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    grid-gap: 0.8rem;
+
+    .btn {
+      background: var(--gradient-color-bg);
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 5px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .menu-icon {
+      position: relative;
+      display: block;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+
+      @media (min-width: 768px) {
+        display: none;
+      }
+
+      &.active::before {
+        transform: rotate(-45deg) translate(-5px, 5px);
+      }
+
+      &.active::after {
+        transform: rotate(45deg) translate(-8px, -8px);
+      }
+
+      &.active .bar {
+        opacity: 0;
+      }
+
+      &::before,
+      &::after,
+      .bar,
+      .bar::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 3px;
+        border-radius: 3px;
+        background: #000;
+        margin: 6px 0;
+        transition: 0.4s;
+      }
+    }
+  }
+}
