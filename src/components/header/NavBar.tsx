@@ -1,6 +1,4 @@
-type isOpenProps = {
-  isOpen: boolean;
-};
+import { isOpenProps } from "../../types/PropsTypes";
 
 const NavBar: React.FC<isOpenProps> = ({ isOpen }) => {
   return (

@@ -1,8 +1,5 @@
 import { useState } from "react";
-
-type ButtonProps = {
-  toggle: () => void;
-};
+import { ButtonProps } from "../../types/PropsTypes";
 
 const Button: React.FC<ButtonProps> = ({ toggle }) => {
   const [isActive, setIsActive] = useState(false);
